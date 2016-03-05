@@ -1,19 +1,8 @@
 # -*- coding: utf-8 -*-
-
+from cms.models import get_plugin_media_path, CMSPlugin, Page
 from django.db import models
+from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
-
-from cms.models import CMSPlugin, Page
-try:
-    from cms.models import get_plugin_media_path
-except ImportError:
-    def get_plugin_media_path(instance, filename):
-        """
-        See cms.models.pluginmodel.get_plugin_media_path on django CMS 3.0.4+
-        for information
-        """
-        return instance.get_media_path(filename)
-from cms.utils.compat.dj import python_2_unicode_compatible
 
 
 @python_2_unicode_compatible
